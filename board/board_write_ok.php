@@ -6,7 +6,7 @@
   $b_sub=$_POST["board_sub"];
   $b_cont=$_POST["board_cont"];
 
-  require "DBconn/dbconn.php";
+  require "../dbconn.php";
 
   $strSQL="insert into board set strName='$b_name', strPassword='$b_pw', strEmail='$b_email', strSubject='$b_sub', strContent='$b_cont', htmlTag='$b_tag', writeDate=now()";
   $rs=mysql_query($strSQL,$conn);
