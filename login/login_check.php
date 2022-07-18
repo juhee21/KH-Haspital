@@ -21,7 +21,7 @@ $id=trim($_POST["user_id"]);
       }*/
 
 
-  require "dbconn.php";
+  require "../dbconn.php";
 
   $strSQL="select * from member where u_id='".$id."' and u_pass='".$pw."';";
   $rs=mysql_query($strSQL,$conn);

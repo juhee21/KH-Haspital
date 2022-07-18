@@ -48,7 +48,7 @@
     </script>
   </head>
   <body>
-    <iframe src="head.php" width="100%" frameborder="0"></iframe>
+    <iframe src="../main/head.php" width="100%" frameborder="0"></iframe>
     <div class="contents">
       <form class="mfrom" action="join_ok.php" method="post">
         <table width="550">

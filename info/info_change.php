@@ -9,7 +9,7 @@ $adress=$_POST["adress"];
 $tel=$_POST["tell"];
 $email=$_POST["email"];
 // DB접속 코드
-require "dbconn.php";
+require "../dbconn.php";
 
 $strSQL="update member set u_pass='$pw1', adress='$adress', tell='$tel', email='$email' where u_id='$_SESSION[user_id]'";
 $rs=mysql_query($strSQL,$conn);

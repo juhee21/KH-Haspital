@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>KH Hospital</title>
-    <link rel="stylesheet" href="style_head.css" type="text/css">
+    <link rel="stylesheet" href="../style_head.css" type="text/css">
   </head>
   <body>
     <?php session_start(); ?>
@@ -12,10 +12,10 @@
     </div>
     <div id="area_menu">
       <a href="index.php" target="_parent"> 홈 </a> |
-      <a href="notice/notice.php" target="_parent"> 공지사항 </a> |
-      <a href="board/board_list.php" target="_parent"> 문의게시판 </a> |
-      <a href="" target="_parent"> 로그인 </a> |
-      <a href="join.php" target="_parent"> 회원가입 </a>
+      <a href="../notice/notice_list.php" target="_parent"> 공지사항 </a> |
+      <a href="../board/board_list.php" target="_parent"> 문의게시판 </a> |
+      <a href="../login/login.php" target="_parent"> 로그인 </a> |
+      <a href="../join/join.php" target="_parent"> 회원가입 </a>
     </div>
   </body>
 </html>

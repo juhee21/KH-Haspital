@@ -10,7 +10,7 @@
   $tel=$_POST["tell"];
   $email=$_POST["email"];
 
-  require "dbconn.php";
+  require "../dbconn.php";
 
   $strSQL="select u_id from member where u_id='".$id."';";
   $rs=mysql_query($strSQL,$conn);
