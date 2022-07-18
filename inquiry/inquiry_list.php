@@ -29,20 +29,20 @@
 
             switch ($key_select) {
               case '1':
-                $strSQL="select * from board where strSubject like '%$keyword%' order by strNumber desc";
+                $strSQL="select * from inquiry where i_subject like '%$keyword%' order by i_number desc";
                 break;
               case '2':
-                $strSQL="select * from board where strContent like '%$keyword%' order by strNumber desc";
+                $strSQL="select * from inquiry where i_content like '%$keyword%' order by i_number desc";
                 break;
               case '3':
-                $strSQL="select * from board where strName like '%$keyword%' order by strNumber desc";
+                $strSQL="select * from inquiry where i_name like '%$keyword%' order by i_number desc";
                 break;
 
               default:
-                $strSQL="select * from board order by strNumber desc";
+                $strSQL="select * from inquiry order by i_number desc";
             }
           } else {
-            $strSQL="select * from board order by strNumber desc";
+            $strSQL="select * from inquiry order by i_number desc";
           }
 
           $rs=mysql_query($strSQL,$conn);
@@ -53,27 +53,27 @@
             </tr>
           <?php else:
           while ($rs_arr=mysql_fetch_array($rs)) {
-            $b_num=$rs_arr["strNumber"];
-            $b_name=$rs_arr["strName"];
-            $b_sub=$rs_arr["strSubject"];
-            $b_no=$rs_arr["viewCount"];
-            $b_date=$rs_arr["writeDate"];
+            $i_num=$rs_arr["i_number"];
+            $i_name=$rs_arr["i_name"];
+            $i_sub=$rs_arr["i_subject"];
+            $i_no=$rs_arr["viewCount"];
+            $i_date=$rs_arr["writeDate"];
          ?>
          <tr>
-           <td><?=$b_num?></td>
-           <td><a href="board_view.php?num=<?=$b_num?>" style="color: #323232"><?=$b_sub?></a></td>
-           <td><?=$b_name?></td>
-           <td><?=$b_date?></td>
-           <td><?=$b_no?></td>
+           <td><?=$i_num?></td>
+           <td><a href="inquiry_view.php?num=<?=$i_num?>" style="color: #323232"><?=$i_sub?></a></td>
+           <td><?=$i_name?></td>
+           <td><?=$i_date?></td>
+           <td><?=$i_no?></td>
          </tr>
        <?php } endif; ?>
       </table>
       <br>
       <p>
-        <input type="button" value="글쓰기" class="btn_default btn_gray" onclick="location.replace('board_write.php')">
+        <input type="button" value="글쓰기" class="btn_default btn_gray" onclick="location.replace('inquiry_write.php')">
         <br>
         <br>
-        <form action="board_list.php">
+        <form action="inquiry_list.php">
           <select name="key_select">
             <option value="1">글제목</option>
             <option value="2">글내용</option>

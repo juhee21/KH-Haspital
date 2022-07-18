@@ -13,22 +13,21 @@
         require "../dbconn.php";
 
         $r_num=$_GET["num"];
-        $strSQL="update board set viewCount=viewCount+1 where strNumber='".$r_num."';";
+        $strSQL="update inquiry set viewCount=viewCount+1 where i_number='".$r_num."';";
         mysql_query($strSQL,$conn);
 
-        $strSQL="select * from board where strNumber='".$r_num."';";
+        $strSQL="select * from inquiry where i_number='".$r_num."';";
         $rs=mysql_query($strSQL,$conn);
         $rs_arr=mysql_fetch_array($rs);
 
-        $b_num=$rs_arr["strNumber"];
-        $b_name=$rs_arr["strName"];
-        $b_email=$rs_arr["strEmail"];
-        $b_sub=$rs_arr["strSubject"];
-        $b_cont=$rs_arr["strContent"];
-        $b_no=$rs_arr["viewCount"];
-        $b_date=$rs_arr["writeDate"];
-        $b_fname=$rs_arr["fileName"];
-        $b_fsize=$rs_arr["fileSize"];
+        $i_num=$rs_arr["i_number"];
+        $i_name=$rs_arr["i_name"];
+        $i_sub=$rs_arr["i_subject"];
+        $i_cont=$rs_arr["i_content"];
+        $i_no=$rs_arr["viewCount"];
+        $i_date=$rs_arr["writeDate"];
+        $i_fname=$rs_arr["fileName"];
+        $i_fsize=$rs_arr["fileSize"];
        ?>
       <table width="700" border="1">
         <tr>
@@ -36,23 +35,21 @@
         </tr>
         <tr>
           <th>이름</th>
-          <td><?=$b_name?></td>
+          <td><?=$i_name?></td>
           <th>등록일</th>
-          <td><?=$b_date?></td>
+          <td><?=$i_date?></td>
         </tr>
         <tr>
-          <th>이메일</th>
-          <td><?=$b_email?></td>
           <th>조회수</th>
-          <td><?=$b_no?></td>
+          <td><?=$i_no?></td>
         </tr>
         <tr>
           <th>제목</th>
-          <td colspan="3"><?=$b_sub?></td>
+          <td colspan="3"><?=$i_sub?></td>
         </tr>
         <tr>
           <th>내용</th>
-          <td colspan="3" style="padding:30px 0;"><?=$b_cont?></td>
+          <td colspan="3" style="padding:30px 0;"><?=$i_cont?></td>
         </tr>
         <tr>
           <th>첨부파일</th>
@@ -61,11 +58,11 @@
       </table>
       <br>
        <p>
-         <form action="board_delete.php?num=<?=$b_num?>" method="post">
-           비밀번호 <input type="password"  name="b_pass" size="20">
+         <form action="inquiry_delete.php?num=<?=$i_num?>" method="post">
+           비밀번호 <input type="password" name="i_pass" size="20">
            <input type="submit" value="삭제" class="btn_default btn_gray">
            &nbsp;&nbsp;&nbsp;&nbsp;
-           <input type="button" value="목록" class="btn_default btn_gray" onclick="location.replace('board_list.php')">
+           <input type="button" value="목록" class="btn_default btn_gray" onclick="location.replace('inquiry_list.php')">
          </form>
        </p>
     </div>
