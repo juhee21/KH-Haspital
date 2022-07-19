@@ -23,14 +23,24 @@ $id=trim($_POST["user_id"]);
 
   require "../dbconn.php";
 
+<<<<<<< HEAD
   $strSQL="select * from patient where p_id='".$id."' and p_pw='".$pw."';";
+=======
+  $strSQL="select * from member where u_id='".$id."' and u_pass='".$pw."';";
+>>>>>>> a2737e490d22561c0327996388188589adb30497
   $rs=mysql_query($strSQL,$conn);
   $rs_arr=mysql_fetch_array($rs);
 
   // if($rs_arr) {
+<<<<<<< HEAD
    if(($id=$rs_arr[p_id])&&($pw=$rs_arr[p_pw])){
     $_SESSION[user_id]=$rs_arr[p_id];
     $_SESSION[name]=$rs_arr[p_name];
+=======
+   if(($id=$rs_arr[u_id])&&($pw=$rs_arr[u_pass])){
+    $_SESSION[user_id]=$rs_arr[u_id];
+    $_SESSION[name]=$rs_arr[u_name];
+>>>>>>> a2737e490d22561c0327996388188589adb30497
     //$_SESSION[ip_addr]=$_SERVER[REMOTE_ADDR];*/
     echo "<script>
       alert('로그인 되었습니다.');

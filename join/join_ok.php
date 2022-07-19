@@ -12,7 +12,11 @@
 
   require "../dbconn.php";
 
+<<<<<<< HEAD
   $strSQL="select p_id from patient where p_id='".$id."';";
+=======
+  $strSQL="select u_id from member where u_id='".$id."';";
+>>>>>>> a2737e490d22561c0327996388188589adb30497
   $rs=mysql_query($strSQL,$conn);
   $rs_arr=mysql_fetch_array($rs);
 
@@ -22,7 +26,11 @@
       history.back();
     </script>";
   } else {
+<<<<<<< HEAD
     $strSQL="insert into patient set p_id='$id', p_pw='$pw1', p_name='$name', p_RRN='$num1-$num2', p_addr='$adress', p_tel='$tel', p_email='$email', reg_date=now())";
+=======
+    $strSQL="insert into member values ('','$id','$pw1','$name','$num1-$num2','$adress','$tel','$email',now())";
+>>>>>>> a2737e490d22561c0327996388188589adb30497
     mysql_query($strSQL,$conn);
     echo "<script>
       alert('회원가입을 축하드립니다!!');
