@@ -14,8 +14,15 @@
       <a href="index.php" target="_parent"> 홈 </a> |
       <a href="../notice/notice_list.php" target="_parent"> 공지사항 </a> |
       <a href="../inquiry/inquiry_list.php" target="_parent"> 문의게시판 </a> |
-      <a href="../login/login.php" target="_parent"> 로그인 </a> |
-      <a href="../join/join.php" target="_parent"> 회원가입 </a>
+
+      <?php if(!$_SESSION[user_id]):?>
+        <a href="../login/login.php" target="_parent"> 로그인 </a> |
+        <a href="../join/join.php" target="_parent"> 회원가입 </a>
+
+     <?php else: ?>
+       <a href="../info/info.php" target="_parent"><?=$_SESSION[name]?>님 정보</a> |
+       <a href="../login/logout.php" target="_parent">로그아웃</a>
+     <?php endif; ?>
     </div>
   </body>
 </html>

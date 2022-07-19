@@ -5,7 +5,7 @@
     session_destroy();
     echo "<script>
     alert('로그아웃 되었습니다.');
-    location.replace('index.php');
+    location.replace('../main/index.php');
     </script>";
   } else {
     echo "<script>

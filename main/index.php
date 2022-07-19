@@ -8,11 +8,7 @@
   <body>
     <iframe src="head.php" width="100%" frameborder="0"></iframe>
     <div id="main_contents" class="contents">
-      <?php
-        session_start();
-        if($_SESSION[user_id])
-        echo $_SESSION[name]."님";
-        ?>
+
       <img src="../image.png" width="100%" height="100%">
     </div>
   </body>

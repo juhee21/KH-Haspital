@@ -21,36 +21,29 @@
       </script>
   </head>
   <body>
-    <iframe src="main/head.php" width="100%" frameborder="0"></iframe>
+    <iframe src="../main/head.php" width="100%" frameborder="0"></iframe>
     <div class="contents">
       <?php
       session_start();
-  /*    if($_SERVER[REMOTE_ADDR]!=$_SESSION[ip_addr]){
-        session_destroy();
-        echo "<script>
-        alert('잘못된 요청입니다.');
-        history.back();
-        </script>";
-        exit();
-      }*/
+
       require "../dbconn.php";
 
-      $strSQL="select * from member where u_id='$_SESSION[user_id]'";
+      $strSQL="select * from patient where p_id='$_SESSION[user_id]'";
       $rs=mysql_query($strSQL,$conn);
       $rs_arr=mysql_fetch_array($rs);
 
-      if($_GET[ch]==1) echo "<h5>성공적으로 변경되었습니다.</h5>";
-      elseif($_GET[ch]==2) echo "<h5>회원정보를 변경하지 못하였습니다.</h5>";
+      if($_GET["ch"]==1) echo "<h5>성공적으로 변경되었습니다.</h5>";
+      else if($_GET["ch"]==2) echo "<h5>회원정보를 변경하지 못하였습니다.</h5>";
       ?>
       <form name="mform" action="info_change.php" method="post">
         <table width="550">
           <tr>
             <th colspan="2" style="background-color:#323232">
-              <font style="color:white; font-size:150%;">회 원 정  보</font></th>
+              <font style="color:white; font-size:150%;">회 원 정 보</font></th>
           </tr>
           <tr>
             <th width="120px">*ID</th>
-            <td><?=$rs_arr[u_id]?></td>
+            <td><?=$rs_arr[p_id]?></td>
           </tr>
           <tr>
             <th>*비밀번호</th>
@@ -62,23 +55,23 @@
             </tr>
             <tr>
               <th>이 름</th>
-              <td><?=$rs_arr[u_name]?></td>
+              <td><?=$rs_arr[p_name]?></td>
             </tr>
           <tr>
             <th>*주민등록번호</th>
-            <td><?=$rs_arr[u_num]?></td>
+            <td><?=$rs_arr[p_RRN]?></td>
           </tr>
           <tr>
             <th>주소</th>
-            <td><input type="text" name="adress" size="30" value=<?=$rs_arr[adress]?>></td>
+            <td><input type="text" name="adress" size="30" value=<?=$rs_arr[p_addr]?>></td>
           </tr>
           <tr>
             <th>전화번호</th>
-            <td><input type="number" name="tel" size="20" value=<?=$rs_arr[tell]?>></td>
+            <td><input type="number" name="tel" size="20" value=<?=$rs_arr[p_tel]?>></td>
           </tr>
           <tr>
             <th>EMAIL</th>
-            <td><input type="text" name="email" size="30" value=<?=$rs_arr[email]?>></td>
+            <td><input type="text" name="email" size="30" value=<?=$rs_arr[p_email]?>></td>
           </tr>
         </table>
         <p>
@@ -87,7 +80,6 @@
           <input type="reset" value="삭제" class="btn_default btn_gray">
         </p>
       </form>
-
     </div>
   </body>
 </html>
