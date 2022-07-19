@@ -5,18 +5,22 @@ session_start();   // 세션시작
 // 입력받을 값(변수지정)
 $pw1=$_POST["user_pw1"];
 $pw2=$_POST["user_pw2"];
-$adress=$_POST["adress"];
+$age=$_POST["age"];
 $tel=$_POST["tell"];
 $email=$_POST["email"];
+$adress=$_POST["address"];
+
+
 // DB접속 코드
 require "../dbconn.php";
 
 $strSQL="update patient set";
 
 if ($pw1) {$strSQL.=" p_pw='$pw1'";}
-if ($adress) {$strSQL.=", p_addr='$adress'";}
-if ($tel) {$strSQL.=", p_tel='$tel'";}
+if ($age) {$strSQL.=" p_age='$age'";}
 if ($email) {$strSQL.=", p_email='$email'";}
+if ($tel) {$strSQL.=", p_tel='$tel'";}
+if ($address) {$strSQL.=", p_addr='$address'";}
 
 $strSQL.=" where p_id='$_SESSION[user_id]';";
 

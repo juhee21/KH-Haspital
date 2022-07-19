@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>login</title>
-    <link rel="stylesheet" href="style_contents.css" type="text/css">
+    <link rel="stylesheet" href="../style_contents.css" type="text/css">
   </head>
   <body>
   <iframe src="../main/head.php" width="100%" frameborder="0"></iframe>
