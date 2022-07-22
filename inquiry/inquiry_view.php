@@ -53,7 +53,11 @@
         </tr>
         <tr>
           <th>첨부파일</th>
-          <td colspan="3"></td>
+          <td colspan="3">
+            <?php if ($i_fname != "") { ?>
+              <a href="inquiry_file_download.php?filename=<?=$i_fname?>" style="color: #323232"><?=$i_fname?>&nbsp;&nbsp;(<?=$i_fsize?>byte)</a>
+            <?php } ?>
+          </td>
         </tr>
       </table>
       <br>

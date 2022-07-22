@@ -8,6 +8,16 @@
   <body>
     <iframe src="../main/head.php" width="100%" frameborder="0"></iframe>
     <div class="contents">
+      <?php
+        session_start();
+        if ($_SESSION[user_id]) {
+          require "../dbconn.php";
+          $strSQL="select p_name from patient where p_id='$_SESSION[user_id]'";
+          $rs=mysql_query($strSQL,$conn);
+          $rs_arr=mysql_fetch_array($rs);
+          $name=$rs_arr["p_name"];
+        }
+        ?>
       <form action="inquiry_write_ok.php" method="post">
         <table width="700">
           <tr>
@@ -15,7 +25,7 @@
           </tr>
           <tr>
             <th width="120">이 름</th>
-            <td><input type="text" name="name" size="20"></td>
+            <td><input type="text" name="name" size="20" value="<?=$name?>"></td>
           </tr>
           <tr>
             <th>비밀번호</th>
