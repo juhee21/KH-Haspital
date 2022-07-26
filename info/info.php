@@ -36,7 +36,7 @@
       else if($_GET["ch"]==2) echo "<h5>회원정보를 변경하지 못하였습니다.</h5>";
       ?>
       <form name="mform" action="info_change.php" method="post">
-        <table width="550">
+        <table width="600">
           <tr>
             <th colspan="2" style="background-color:#323232">
               <font style="color:white; font-size:150%;">회 원 정 보</font></th>
@@ -79,7 +79,7 @@
           </tr>
           <tr>
             <th>주소</th>
-            <td><input type="text" name="address" size="30" maxlength="25" value="<?=$rs_arr[p_addr]?>"></td>
+            <td><input type="text" name="address" size="30" value="<?=$rs_arr[p_addr]?>"></td>
           </tr>
           <tr>
             <th>전화번호</th>

@@ -72,7 +72,7 @@
     <iframe src="../main/head.php" width="100%" frameborder="0"></iframe>
     <div class="contents">
       <form name="mform" action="join_ok.php" method="post">
-        <table width="550">
+        <table width="600">
         <tr>
           <th colspan="2" style="background-color:#323232">
             <font style="color:white; font-size:150%">회 원 가 입</font></th>
