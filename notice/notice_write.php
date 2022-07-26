@@ -8,7 +8,7 @@
   <body>
     <iframe src="../main/head.php" width="100%" frameborder="0"></iframe>
     <div class="contents">
-      <form action="notice_write_ok.php" method="post">
+      <form action="notice_write_ok.php" method="post" enctype="multipart/form-data">
         <table width="700">
           <tr>
             <th colspan="2" style="background-color:#323232; color:white; font-size:150%">공 지 사 항 작 성</th>

@@ -18,7 +18,7 @@
           $name=$rs_arr["p_name"];
         }
         ?>
-      <form action="inquiry_write_ok.php" method="post">
+      <form action="inquiry_write_ok.php" method="post" enctype="multipart/form-data">
         <table width="700">
           <tr>
             <th colspan="2" style="background-color:#323232; color:white; font-size:150%">문 의 게 시 글 작 성</th>
