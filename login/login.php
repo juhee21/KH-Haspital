@@ -16,11 +16,11 @@
           </tr>
           <tr>
             <th>ID</th>
-            <td><input type="text" name="user_id" style="border:0" maxlength="15"></td>
+            <td><input type="text" name="user_id" style="border:0"></td>
           </tr>
           <tr>
             <th>PASSWORD</th>
-            <td><input type="password" name="user_pw" style="border:0" maxlength="20"></td>
+            <td><input type="password" name="user_pw" style="border:0"></td>
           </tr>
         </table>
         <p>

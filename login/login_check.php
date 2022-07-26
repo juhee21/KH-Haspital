@@ -1,10 +1,8 @@
 <?php
   session_start();
 
-$id=trim($_POST["user_id"]);
- $pw=trim($_POST["user_pw"]);
-
-  //  trim 공백을 제거해주는 함수(비정상적인 코드 사용시)
+$id=$_POST["user_id"];
+ $pw=$_POST["user_pw"];
 
  if ($id == "" && $pw =="") {
     echo "<script>
@@ -13,13 +11,6 @@ $id=trim($_POST["user_id"]);
     </script>";
     exit();
   }
-  /*if($id=="admin"&&$_SERVER[REMOTE_ADDR]!="192.168.50.1"){
-              echo "<script>
-          alert('접속이 불가능한 계정입니다.')
-          history.back();
-        </script>";
-      }*/
-
 
   require "../dbconn.php";
 
@@ -27,11 +18,10 @@ $id=trim($_POST["user_id"]);
   $rs=mysql_query($strSQL,$conn);
   $rs_arr=mysql_fetch_array($rs);
 
-  // if($rs_arr) {
    if(($id=$rs_arr[p_id])&&($pw=$rs_arr[p_pw])){
     $_SESSION[user_id]=$rs_arr[p_id];
     $_SESSION[name]=$rs_arr[p_name];
-    //$_SESSION[ip_addr]=$_SERVER[REMOTE_ADDR];*/
+
     echo "<script>
       alert('로그인 되었습니다.');
       location.replace('../main/index.php');
