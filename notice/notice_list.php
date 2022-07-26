@@ -20,6 +20,7 @@
           <th width="8%">조회</th>
         </tr>
         <?php
+          session_start();
           require "../dbconn.php";
 
           $strSQL="";
@@ -70,7 +71,12 @@
       </table>
       <br>
       <p>
-        <input type="button" value="글쓰기" class="btn_default btn_gray" onclick="location.replace('notice_write.php')">
+        <?php
+          if ($_SESSION[user_id] == maikol) {
+         ?>
+        <input type="button"  value="글쓰기" class="btn_default btn_gray" onclick="location.replace('notice_write.php')">
+
+      <?php } ?>
         <br>
         <br>
         <form action="notice_list.php">
