@@ -59,7 +59,7 @@
           <td colspan="3">
             <?php
             if($n_fname!=""){ ?>
-              <a href="notice_file_download.php?filename=<?=$n_fname;?>"><?=$n_fname;?>&nbsp;&nbsp;(<?=$n_fsize;?>byte)</a>
+              <a href="notice_file_download.php?filename=<?=$n_fname;?>" style="color: #323232"><?=$n_fname;?>&nbsp;&nbsp;(<?=$n_fsize;?>byte)</a>
             <?php  } ?>
           </td>
         </tr>
