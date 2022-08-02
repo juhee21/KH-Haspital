@@ -25,20 +25,20 @@
           </tr>
           <tr>
             <th width="120">이 름</th>
-            <td><input type="text" name="name" size="20" value="<?=$name?>"></td>
+            <td><input type="text" name="name" size="20" value="<?=$name?>" maxlength="20"></td>
           </tr>
           <tr>
             <th>비밀번호</th>
-            <td><input type="password" name="inquiry_pw" size="20"></td>
+            <td><input type="password" name="inquiry_pw" size="20" maxlength="20"></td>
           </tr>
           <tr>
             <th>제 목</th>
-            <td><input type="text" name="inquiry_sub" size="40"></td>
+            <td><input type="text" name="inquiry_sub" size="40" maxlength="40"></td>
           </tr>
           <tr>
           <tr>
             <th>내 용</th>
-            <td><textarea name="inquiry_cont" cols="60" rows="20"></textarea></td>
+            <td><textarea name="inquiry_cont" cols="60" rows="20" maxlength="2000"></textarea></td>
           </tr>
           <tr>
             <th>파일첨부</th>

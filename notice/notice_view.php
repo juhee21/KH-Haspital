@@ -16,7 +16,7 @@
         $strSQL="update notice set viewCount=viewCount+1 where n_number='".$r_num."';";
         mysql_query($strSQL,$conn);
 
-        $strSQL="select * from notice where n_number='".$r_num."';";
+        $strSQL="select * from notice where n_number=".$r_num.";";
         $rs=mysql_query($strSQL,$conn);
         $rs_arr=mysql_fetch_array($rs);
 
@@ -35,9 +35,9 @@
           <th colspan="4" style="background-color:#323232; color:white; font-size:150%">내 용 보 기</th>
         </tr>
         <tr>
-          <th>이름</th>
+          <th width="80">이름</th>
           <td><?=$n_name?></td>
-          <th>등록일</th>
+          <th width="80">등록일</th>
           <td><?=$n_date?></td>
         </tr>
         <tr>

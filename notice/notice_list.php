@@ -75,7 +75,6 @@
           if ($_SESSION[user_id] == maikol) {
          ?>
         <input type="button"  value="글쓰기" class="btn_default btn_gray" onclick="location.replace('notice_write.php')">
-
       <?php } ?>
         <br>
         <br>
@@ -85,7 +84,7 @@
             <option value="2">글내용</option>
             <option value="3">작성자</option>
           </select>
-          <input type="text" name="keyword">
+          <input type="text" name="keyword" maxlength="50">
           <input type="submit" value="검색" class="btn_default btn_gray">
         </form>
       </p>

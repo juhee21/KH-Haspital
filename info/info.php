@@ -51,11 +51,11 @@
           </tr>
           <tr>
             <th>*비밀번호</th>
-              <td><input type="password" name="user_pw1" size="20">&nbsp;&nbsp;&nbsp;<font style="color:red;">6~20(영문/숫자/특수문자)</font></input></td>
+              <td><input type="password" name="user_pw1" size="20" maxlength="20">&nbsp;&nbsp;&nbsp;<font style="color:red;">6~20(영문/숫자/특수문자)</font></input></td>
           </tr>
           <tr>
             <th>*비밀번호 확인</th>
-            <td><input type="password" name="user_pw2" size="20"></td>
+            <td><input type="password" name="user_pw2" size="20" maxlength="20"></td>
           </tr>
           <tr>
             <th>이 름</th>
@@ -71,7 +71,7 @@
           </tr>
           <tr>
             <th>나 이</th>
-            <td><input type="number" name="age" size="20" value="<?=$rs_arr[p_age]?>"></td>
+            <td><input type="number" name="age" size="20" min="0" max="150" value="<?=$rs_arr[p_age]?>"></td>
           </tr>
           <tr>
             <th>주민등록번호</th>
@@ -79,15 +79,15 @@
           </tr>
           <tr>
             <th>주소</th>
-            <td><input type="text" name="address" size="30" value="<?=$rs_arr[p_addr]?>"></td>
+            <td><input type="text" name="address" size="30" value="<?=$rs_arr[p_addr]?>" maxlength="25"></td>
           </tr>
           <tr>
             <th>전화번호</th>
-            <td><input type="text" name="tel" size="20" value="<?=$rs_arr[p_tel]?>"></td>
+            <td><input type="text" name="tel" size="20" value="<?=$rs_arr[p_tel]?>" maxlength="11"></td>
           </tr>
           <tr>
             <th>EMAIL</th>
-            <td><input type="text" name="email" size="30" value="<?=$rs_arr[p_email]?>"></td>
+            <td><input type="text" name="email" size="30" value="<?=$rs_arr[p_email]?>" maxlength="25"></td>
           </tr>
         </table>
         <p>

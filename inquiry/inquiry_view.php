@@ -16,7 +16,7 @@
         $strSQL="update inquiry set viewCount=viewCount+1 where i_number='".$r_num."';";
         mysql_query($strSQL,$conn);
 
-        $strSQL="select * from inquiry where i_number='".$r_num."';";
+        $strSQL="select * from inquiry where i_number=".$r_num.";";
         $rs=mysql_query($strSQL,$conn);
         $rs_arr=mysql_fetch_array($rs);
 
@@ -31,29 +31,27 @@
        ?>
       <table width="700" border="1">
         <tr>
-          <th colspan="4" style="background-color:#323232; color:white; font-size:150%">내 용 보 기</th>
+          <th colspan="6" style="background-color:#323232; color:white; font-size:150%">내 용 보 기</th>
         </tr>
         <tr>
-          <th>이름</th>
-          <td><?=$i_name?></td>
+          <th width="80">이름</th>
+          <td width=20%><?=$i_name?></td>
           <th>등록일</th>
-          <td><?=$i_date?></td>
-        </tr>
-        <tr>
+          <td width=30%><?=$i_date?></td>
           <th>조회수</th>
-          <td><?=$i_no?></td>
+          <td width=20%><?=$i_no?></td>
         </tr>
         <tr>
           <th>제목</th>
-          <td colspan="3"><?=$i_sub?></td>
+          <td colspan="5"><?=$i_sub?></td>
         </tr>
         <tr>
           <th>내용</th>
-          <td colspan="3" style="padding:30px 0;"><?=$i_cont?></td>
+          <td colspan="5" style="padding:30px 0;"><?=$i_cont?></td>
         </tr>
         <tr>
           <th>첨부파일</th>
-          <td colspan="3">
+          <td colspan="5">
             <?php if ($i_fname != "") { ?>
               <a href="inquiry_file_download.php?filename=<?=$i_fname?>" style="color: #323232"><?=$i_fname?>&nbsp;&nbsp;(<?=$i_fsize?>byte)</a>
             <?php } ?>
