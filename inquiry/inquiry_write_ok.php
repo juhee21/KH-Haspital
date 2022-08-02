@@ -5,6 +5,9 @@
   $i_sub=$_POST["inquiry_sub"];
   $i_cont=$_POST["inquiry_cont"];
 
+  $i_sub=str_replace("<", "&lt", $i_sub);
+  $i_cont=str_replace("<", "&lt", $i_cont);
+
   $f_error=$_FILES["att_file"]["error"]; //파일에 에러가 있는지 없는 지
   //(0:성공, 1:php에서 제한한 파일크기보다 크다, 2:html form에서 지원하는 파일 크기보다 크다, 3:파일의 일부분만 전송되었다,
   //  4:파일전송이 없는 경우, 6:임시폴더가 없는 경우, 7:파일쓰기 실패, 8:확장자로 인한 업로드 금지)
@@ -13,6 +16,14 @@
     $f_path="upload/".$f_name;
     $f_tmp=$_FILES["att_file"]["tmp_name"];
     $f_size=$_FILES["att_file"]["size"];
+
+    if (preg_match("/\.html|\.php|\.asp|\.jsp|\.exe/i", $f_name)) {
+      echo "<script>
+      alert('요청한 첨부파일은 업로드가 불가능합니다.');
+      history.back();
+      </script>";
+      exit();
+    }
 
     $f_name_only1=substr($f_name,0,strrpos($f_name,'.')); //substr(원본문자, 시작위치, 글자수) //글자수는 생략 가능-끝까지 다 가져온다
     //파일 이름만, strrpos:원본 데이터에서 .이라는 문자가 나오기 전까지의 글자수를 세주는 함수
