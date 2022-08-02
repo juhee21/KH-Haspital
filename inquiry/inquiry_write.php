@@ -10,6 +10,10 @@
     <div class="contents">
       <?php
         session_start();
+
+        include_once("../random.php");
+        $_SESSION[token]=ge_st(20);
+
         if ($_SESSION[user_id]) {
           require "../dbconn.php";
           $strSQL="select p_name from patient where p_id='$_SESSION[user_id]'";
@@ -25,7 +29,7 @@
           </tr>
           <tr>
             <th width="120">이 름</th>
-            <td><input type="text" name="name" size="20" value="<?=$name?>" maxlength="20"></td>
+            <td><input type="text" name="name" size="20" value="<?=$name?>" maxlength="20"><input type="hidden" name="token" value="<?=$_SESSION[token];?>"></td>
           </tr>
           <tr>
             <th>비밀번호</th>

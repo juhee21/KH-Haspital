@@ -26,6 +26,9 @@
       <?php
       session_start();
 
+      include_once("../random.php");
+      $_SESSION[token]=ge_st(20);
+
       require "../dbconn.php";
 
       $strSQL="select * from patient where p_id='$_SESSION[user_id]'";
@@ -47,7 +50,7 @@
           </tr>
           <tr>
             <th width="120px">*ID</th>
-            <td><?=$rs_arr[p_id]?></td>
+            <td><?=$rs_arr[p_id]?><input type="hidden" name="token" value="<?=$_SESSION[token];?>"></td>
           </tr>
           <tr>
             <th>*비밀번호</th>
@@ -59,7 +62,7 @@
           </tr>
           <tr>
             <th>이 름</th>
-            <td><?=$rs_arr[p_name]?></td>
+            <td><?=$rs_arr[p_name]?><input type="hidden" name="token" value="<?=$_SESSION[token];?>"></td>
           </tr>
           <tr>
             <th>진료과</th>

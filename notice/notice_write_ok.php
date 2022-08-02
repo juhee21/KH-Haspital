@@ -1,10 +1,19 @@
 <?php
+  session_start();
 
   $n_name=$_POST["name"];
   $n_pw=$_POST["notice_pw"];
   $n_email=$_POST["email"];
   $n_sub=$_POST["notice_sub"];
   $n_cont=$_POST["notice_cont"];
+
+  if ($_POST["token"]!=$_SESSION[token]) {
+    echo "<script>
+      alert('요청의 경로가 올바르지 않습니다.');
+      location.replace('notice_list.php');
+    </script>";
+    exit();
+  }
 
   $f_error=$_FILES["att_file"]["error"]; //파일에 에러가 있는지 없는 지
     //(0:성공, 1:php에서 제한한 파일크기보다 크다, 2:html form에서 지원하는 파일 크기보다 크다, 3:파일의 일부분만 전송되었다,

@@ -1,12 +1,21 @@
 <?php
+  session_start();
 
   $i_name=$_POST["name"];
   $i_pw=$_POST["inquiry_pw"];
   $i_sub=$_POST["inquiry_sub"];
   $i_cont=$_POST["inquiry_cont"];
 
-  $i_sub=str_replace("<", "&lt", $i_sub);
-  $i_cont=str_replace("<", "&lt", $i_cont);
+  if ($_POST["token"]!=$_SESSION[token]) {
+    echo "<script>
+      alert('요청의 경로가 올바르지 않습니다.');
+      location.replace('inquiry_list.php');
+    </script>";
+    exit();
+  }
+
+  //$i_sub=str_replace("<", "&lt", $i_sub);
+  //$i_cont=str_replace("<", "&lt", $i_cont);
 
   $f_error=$_FILES["att_file"]["error"]; //파일에 에러가 있는지 없는 지
   //(0:성공, 1:php에서 제한한 파일크기보다 크다, 2:html form에서 지원하는 파일 크기보다 크다, 3:파일의 일부분만 전송되었다,

@@ -8,6 +8,11 @@
   <body>
     <iframe src="../main/head.php" width="100%" frameborder="0"></iframe>
     <div class="contents">
+      <?php
+      session_start();
+      include_once("../random.php");
+      $_SESSION[token]=ge_st(20);
+       ?>
       <form action="notice_write_ok.php" method="post" enctype="multipart/form-data">
         <table width="700">
           <tr>
@@ -15,7 +20,7 @@
           </tr>
           <tr>
             <th width="120">이 름</th>
-            <td><input type="text" name="name" size="20"></td>
+            <td><input type="text" name="name" size="20"><input type="hidden" name="token" value="<?=$_SESSION[token];?>"></td>
           </tr>
           <tr>
             <th>비밀번호</th>
