@@ -25,6 +25,15 @@
           $strSQL="";
           if ($_GET["keyword"]) {
             $keyword=$_GET["keyword"];
+
+            if (preg_match("/select|insert|union|drop|update/i", $keyword)) {
+              exit("<script>alert('hacking!!!'); history.back();</script>");
+            }//select|insert|union|drop|update 값이 들어가면 hacking 경고문과 함께 이전페이지로
+
+            if (preg_match("/from|limit|information_schema|tables|columns/i", $keyword)) {
+              exit("<script>alert('hacking!!!'); history.back();</script>");
+            }//from|limit|information_schema|tables|columns 값이 들어가면 hacking 경고문과 함께 이전페이지로
+
             $key_select=$_GET["key_select"];
 
             switch ($key_select) {
@@ -73,13 +82,17 @@
         <input type="button" value="글쓰기" class="btn_default btn_gray" onclick="location.replace('inquiry_write.php')">
         <br>
         <br>
+        <?php
+          if ($keyword) echo "[$keyword] 검색 결과입니다.";
+          else echo "전체 검색 결과입니다.";
+        ?>
         <form action="inquiry_list.php">
           <select name="key_select">
             <option value="1">글제목</option>
             <option value="2">글내용</option>
             <option value="3">작성자</option>
           </select>
-          <input type="text" name="keyword">
+          <input type="text" name="keyword" maxlength="50">
           <input type="submit" value="검색" class="btn_default btn_gray">
         </form>
       </p>
